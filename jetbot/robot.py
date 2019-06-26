@@ -1,7 +1,7 @@
 import time
 import traitlets
 from traitlets.config.configurable import SingletonConfigurable
-from Adafruit_MotorHAT import Adafruit_MotorHAT
+from .a_star import AStar
 from .motor import Motor
 
 
@@ -19,7 +19,8 @@ class Robot(SingletonConfigurable):
     
     def __init__(self, *args, **kwargs):
         super(Robot, self).__init__(*args, **kwargs)
-        self.motor_driver = Adafruit_MotorHAT(i2c_bus=self.i2c_bus)
+        self.motor_driver = AStar()
+
         self.left_motor = Motor(self.motor_driver, channel=self.left_motor_channel, alpha=self.left_motor_alpha)
         self.right_motor = Motor(self.motor_driver, channel=self.right_motor_channel, alpha=self.right_motor_alpha)
         

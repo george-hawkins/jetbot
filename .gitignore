@@ -1,0 +1,9 @@
+*.egg-info
+build
+dist
+__pycache__
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.so
